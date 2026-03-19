@@ -2,68 +2,149 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Anveshan Team Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anveshan</title>
 
   <!-- Nepali Date Picker CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nepali-datepicker@2.0.3/dist/nepaliDatePicker.min.css">
 
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       background: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
     }
 
     .form-container {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+
+    .form-box {
       background: #fff;
+      width: 100%;
+      max-width: 500px;
       padding: 25px;
       border-radius: 10px;
-      width: 350px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: bold;
     }
 
     input, textarea {
       width: 100%;
-      padding: 10px;
-      margin: 8px 0;
+      padding: 12px;
+      margin: 8px 0 15px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: green;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
     }
 
     button {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       background: green;
       color: white;
       border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: darkgreen;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      .form-box {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      input, textarea {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      button {
+        font-size: 15px;
+        padding: 10px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .form-box {
+        max-width: 600px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .form-box {
+        max-width: 650px;
+      }
     }
   </style>
 </head>
 <body>
 
 <div class="form-container">
-  <h2> Members Form </h2>
+  <div class="form-box">
+    <h2>Anveshan Personal Form</h2>
 
-  <form action="https://formspree.io/f/maqpvqob" method="POST">
+    <form action="https://formspree.io/f/maqpvqob" method="POST">
 
-    <label>Name:</label>
-    <input type="text" name="name" required>
+      <label>Name:</label>
+      <input type="text" name="name" required>
 
-    <label>Date of Birth (BS):</label>
-    <input type="text" id="nepali-date" name="dob_bs" placeholder="YYYY-MM-DD" required>
+      <label>Date of Birth (BS):</label>
+      <input type="text" id="nepali-date" name="dob_bs" placeholder="YYYY-MM-DD" required>
 
-    <label>Address:</label>
-    <textarea name="address" required></textarea>
+      <label>Address:</label>
+      <textarea name="address" required></textarea>
 
-    <label>Contact:</label>
-    <input type="tel" name="contact" required>
+      <label>Contact:</label>
+      <input type="tel" name="contact" required>
 
-    <label>Email:</label>
-    <input type="email" name="email" required>
+      <label>Email:</label>
+      <input type="email" name="email" required>
 
-    <button type="submit">Submit</button>
-  </form>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 </div>
 
 <!-- JS Libraries -->
